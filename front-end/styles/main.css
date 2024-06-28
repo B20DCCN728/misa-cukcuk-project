@@ -1,0 +1,98 @@
+.header__navbar {
+    padding-top: 4px;
+    background-color: #C47DD0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__navbar-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo-item {
+
+}
+
+.header__logo-toggle {
+    margin-right: 8px;
+}
+
+.header__logo-toggle__img {
+    margin: 12px 10px 12px 16px;
+    width: 24px;
+    height: 24px;
+}
+
+.header__logo-toggle__img:hover  {
+    cursor: pointer;
+}
+
+.header__logo-content {
+
+}
+
+.header__logo-content__img {
+    width: 130px;
+}
+
+.header__restaurant {
+    margin-left: 40px;
+}
+
+.header__restaurant:hover,
+.header__restaurant-name-icon:hover,
+.header__restaurant-name:hover {
+    cursor: pointer;
+    color: #5E176A;
+}
+
+.header__restaurant-name {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.header__restaurant-name-icon {
+    margin-left: 8px;
+}
+
+.header__navbar-list-right {
+    margin-right: 16px;
+}
+
+.header__navbar-item {
+
+}
+
+.header__info {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    padding-bottom: 2px;
+}
+
+.header__info-img {
+    width: 32px;
+    height: 32px;
+}
+
+.header__info-fullname {
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.header__option {
+
+}
+
+.header__option-icon { 
+    width: 24px;
+    height: 24px;
+}

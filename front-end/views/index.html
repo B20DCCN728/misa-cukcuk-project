@@ -5,24 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/resources/assets/font/fontawesome-5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>CUKCUK MANAGEMENT</title>
 </head>
 <body>
     <div class="app">
         <nav class="header__navbar">
-            <ul class="header__navbar-list">
+            <ul class="header__navbar-list header__navbar-list-left">
                 <li class="header__logo-item header__logo-toggle">
-                    <img src="/resources/assets/img/toggle.png" alt="" class="header__logo-toggle__img">
+                    <img src="/resources/assets/img/toggle.png" alt="toggle" class="header__logo-toggle__img">
                 </li>
                 <li class="header__logo-item header__logo-content">
                     <a href="">
-                        <img src="/resources/assets/cukcuk-logo.png" alt="" class="header__logo-content__img">
+                        <img src="/resources/assets/cukcuk-logo.png" alt="logo" class="header__logo-content__img">
                     </a>
                 </li>
+                <li class="header__logo-item">
+                    <div class="header__restaurant">
+                        <span class="header__restaurant-name">Chi nhánh Hà Nội</span>
+                        <i class="fas fa-angle-down header__restaurant-name-icon"></i>      
+                    </div>
+                </li>
             </ul>
-        </nav>
-        <nav class="header__navbar">
-            <ul class="header__navbar-list">
+            <ul class="header__navbar-list header__navbar-list-right">
                 <li class="header__navbar-item">
                     <div class="header__info">
                         <img src="/resources/assets/icon/avatar-default.png" alt="Ảnh đại diện" class="header__info-img">
@@ -31,7 +39,7 @@
                 </li>
                 <li class="header__navbar-item">
                     <div class="header__option">
-                        <img src="/resources/assets/icon/option.png" alt="" class="header__option-icon">
+                        <img src="/resources/assets/icon/option.png" alt="option" class="header__option-icon">
                     </div>
                 </li>
             </ul>
@@ -40,7 +48,6 @@
         <div class="footer"></div>
     </div>
 
-    // Modal
     <div class="modal"></div>
 </body>
 </html>
