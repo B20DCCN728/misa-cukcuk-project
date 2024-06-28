@@ -62,9 +62,9 @@
     margin-left: 8px;
 }
 
-.header__navbar-list-right {
+/* .header__navbar-list-right {
     margin-right: 16px;
-}
+} */
 
 .header__navbar-item {
 
@@ -78,21 +78,33 @@
 }
 
 .header__info-img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
 }
 
 .header__info-fullname {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 550;
     margin-left: 10px;
 }
 
-.header__option {
+.header__info:hover,
+.header__info-img:hover,
+.header__info-fullname:hover {
+    cursor: pointer;
+    color: #5E176A;
+}
 
+.header__option {
+    margin: 0 30px 0 5px;
 }
 
 .header__option-icon { 
     width: 24px;
     height: 24px;
+}
+
+.header__option:hover,
+.header__option-icon:hover {
+    cursor: pointer;
 }
