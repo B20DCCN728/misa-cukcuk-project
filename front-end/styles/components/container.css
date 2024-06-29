@@ -4,10 +4,8 @@
 }
 
 .app__content {
-    display: flex;
-    flex-direction: column;
+    margin: 20px 30px;
     height: 100%;
-    width: 100%;
     overflow: hidden;
 }
 
@@ -17,7 +15,22 @@
 }
 
 .app__content-name {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--text-color);
     font-weight: 400;
+}
+
+.app__content-add {
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.app__content-add-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+}
+
+.app__content-add-name {
+    margin-left: 2px;
 }

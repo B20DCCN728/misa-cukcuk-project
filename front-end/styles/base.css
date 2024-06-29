@@ -67,3 +67,23 @@ html, body {
     height: 100%;
 }
 
+.btn {
+  min-width: 110px;
+  height: 36px;
+  text-decoration: none; 
+  border: none;
+  border-radius: 5px; 
+  font-size: 1.1rem;
+  padding: 0 10px;
+  cursor: pointer;
+  outline: none;
+  color: var(--white-color);
+  display: inline-flex;
+  align-items: center;
+  background-color: #089740;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #0a7d3e;
+}
