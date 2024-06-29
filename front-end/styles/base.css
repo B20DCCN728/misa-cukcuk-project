@@ -37,6 +37,10 @@ html, body {
     overflow: hidden;
 }
 
+.grid-container {
+  display: flex;
+}
+
 @font-face {
     font-family: GoogleSanS-Medium;
     src: url(/resources/assets/font/GoogleSans-Medium.otf);

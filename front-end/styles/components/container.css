@@ -1,3 +1,23 @@
-.container {
-    
+.body {
+    width: calc(100% - 200px);
+    background-color: #eeeff1;
+}
+
+.app__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app__content-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app__content-name {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 400;
 }

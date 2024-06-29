@@ -1,7 +1,8 @@
 /* Title of left-bar */
 .navbar-left {
     border-right: 2px solid #E5E5E5;
-    width: 200px;
+    width: 240px;
+    padding: 0;
     position: relative;
     background: #95b0e0;
     height: 100vh; /* Set height to 100% of viewport height */
