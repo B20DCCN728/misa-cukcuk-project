@@ -34,3 +34,241 @@
 .app__content-add-name {
     margin-left: 2px;
 }
+
+.app__content-table-tool {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/*  Search field */
+.header__search {
+    border: 1px solid #d7d4d4;
+    width: 40%;
+    height: 34px;
+    border-radius: 2px;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+  }
+
+.header__search-input-wrap {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.header__search-input {
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    padding: 0 16px;
+}
+
+.header__cart {
+    width: 150px;
+    text-align: center;
+}
+
+.header__cart-icon {
+    margin-top: 6px;
+    color: var(--white-color);
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+
+/* .header__search-select {
+    border-left: 1px solid #d7d4d4;
+    padding-left: 16px;
+    position: relative;
+    cursor: pointer;
+} */
+
+.header__search-select-label {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+.header__search-select-icon {
+    font-size: 1.2rem;
+    color: rgb(95, 95, 95);
+    margin: 0 14px; 
+}
+
+.header__search-btn {
+    background-color: var(--white-color);
+    border: none;
+    outline: none;
+    height: 28px;
+    margin-right: 3px;
+    width: 60px;
+    border-radius: 3px;
+}
+/* hover button */
+.header__search-btn:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
+/* icon button */
+.header__search-btn-icon {
+    padding-top: 3px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.header__search-select:hover .header__search-options {
+    display: block;
+}
+
+.header__search-options {
+    display: none;
+    position: absolute;
+    box-shadow: 0 1px 2px #e0e0e0;
+    right: 0;
+    animation: fadeIn ease-in 0.2s;
+    top: calc(100% + 3px);
+    width: 130px;
+    border-radius: 3px;
+    list-style: none;
+    padding-left: 0;
+    /* overflow: hidden; */
+}
+
+.header__search-options::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    top: -20px;
+}
+
+.header__search-option-item {
+    background-color: var(--white-color);
+    padding: 8px;
+}
+
+.header__search-option-item:first-child {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.header__search-option-item:last-child {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.header__search-option-item:hover {
+    background-color: #e3e3e3;
+    cursor: pointer;
+}
+
+.header__search-option-item span {
+    font-size: 1.4rem;
+    margin-left: 8px;
+    color: var(--text-color);
+}
+
+.header__search-option-item i {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin: 0 0 0 12px;
+    display: none;
+}
+
+.header__search-option-item--active i {
+    display: inline-block;
+}
+
+/* Search History */
+.header__search-input:focus ~ .header__search-history {
+    display: block;
+}
+
+.header__search-history {
+    display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    width: calc(100% - 16px);
+    background-color: var(--white-color);
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 0 3px rgb(189, 189, 189);
+}
+
+.header__search-history-heading {
+    margin: 6px 12px;
+    font-size: 1.4rem;
+    color: #898989;
+    font-weight: 400;
+}
+
+.header__search-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+}
+
+.header__search-history-item {
+    height: 38px;
+}
+.header__search-history-item:hover {
+    background-color: #efe8e8;
+    cursor: pointer;
+}
+
+.header__search-history-item a {
+    line-height: 38px;
+    padding: 0 12px;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.refresh-button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    background-image: url(/resources/assets/icon/refresh.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px 22px;
+    background-color: #ffffff;
+}
+  
+.refresh-button:hover{
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.app__content-table .another {
+    display: flex;
+    align-items: center;
+}
+
+.export-excel-btn {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    background-image: url(/resources/assets/icon/export-excel-50.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px 22px;
+    background-color: #ffffff;
+}
+  
+.export-excel-btn:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
