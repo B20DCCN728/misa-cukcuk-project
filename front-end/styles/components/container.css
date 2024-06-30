@@ -104,21 +104,26 @@
     background-color: var(--white-color);
     border: none;
     outline: none;
-    height: 28px;
-    margin-right: 3px;
+    height: 30px;
+    margin-right: 1px;
     width: 60px;
     border-radius: 3px;
 }
 /* hover button */
 .header__search-btn:hover {
     cursor: pointer;
-    background-color: var(--primary-color);
+    background-color: #989595;
 }
+
 /* icon button */
 .header__search-btn-icon {
     padding-top: 3px;
     font-size: 1.1rem;
     color: var(--text-color);
+}
+
+.header__search-btn-icon--active {
+    color : var(--white-color);
 }
 
 .header__search-select:hover .header__search-options {
@@ -271,4 +276,60 @@
 .export-excel-btn:hover {
     background-color: #f9f9f9;
     cursor: pointer;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+thead th {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #007bff;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td, th {
+    padding: 12px 15px;
+}
+
+.app__content-table-cell-action {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.app__content-table-cell-action-img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.app__content-table-cell-action-img:hover {
+    transform: scale(1.2);
 }

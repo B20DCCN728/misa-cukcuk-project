@@ -96,7 +96,7 @@
                     <div class="header__search-input-wrap">
                       <input type="text" class="header__search-input" placeholder="Tìm kiếm theo mã, họ tên" value="">
                       <!-- Search History -->
-                      <div class="header__search-history">
+                      <!-- <div class="header__search-history">
                         <h3 class="header__search-history-heading">
                           Search History
                         </h3>
@@ -111,7 +111,7 @@
                             <a href="">Kornet ATGM</a>
                           </li>
                         </ul>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="header__search-select">
                       <i class="header__search-select-icon fa-sharp fa-solid fa-chevron-down"></i>
@@ -127,7 +127,7 @@
                       </ul>
                     </div>
                     <button class="header__search-btn" onclick="">
-                      <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                      <i class="header__search-btn-icon header__search-btn-icon--active fa-solid fa-magnifying-glass"></i>
                     </button>
                   </div>
                   <div class="another">
@@ -135,93 +135,38 @@
                     <div class="refresh-button"></div>
                   </div>
                 </div>
-                <table class="app__content-table-table">
+                <table class="app__content-table">
                   <thead>
-                    <tr>
-                      <th class="app__content-table-table-header">Mã nhân viên</th>
-                      <th class="app__content-table-table-header">Họ và tên</th>
-                      <th class="app__content-table-table-header">Ngày sinh</th>
-                      <th class="app__content-table-table-header">Giới tính</th>
-                      <th class="app__content-table-table-header">Chức vụ</th>
-                      <th class="app__content-table-table-header">Số điện thoại</th>
-                      <th class="app__content-table-table-header">Email</th>
-                      <th class="app__content-table-table-header">Địa chỉ</th>
-                      <th class="app__content-table-table-header">Tình trạng làm việc</th>
-                      <th class="app__content-table-table-header">Hành động</th>
-                    </tr>
+                      <tr>
+                          <th class="app__content-table-header">STT</th>
+                          <th class="app__content-table-header">Mã nhân viên</th>
+                          <th class="app__content-table-header">Họ và tên</th>
+                          <th class="app__content-table-header">Giới tính</th>
+                          <th class="app__content-table-header">Ngày sinh</th>
+                          <th class="app__content-table-header">Địa chỉ Email</th>
+                          <th class="app__content-table-header">Địa chỉ</th>
+                          <th class="app__content-table-header">Hành động</th>
+                      </tr>
                   </thead>
                   <tbody>
-                    <tr class="app__content-table-table-row">
-                      <td class="app__content-table-table-cell">NV001</td>
-                      <td class="app__content-table-table-cell">Nguyễn Hoàng Việt</td>
-                      <td class="app__content-table-table-cell">20/10/1999</td>
-                      <td class="app__content-table-table-cell">Nam</td>
-                      <td class="app__content-table-table-cell">Nhân viên</td>
-                      <td class="app__content-table-table-cell">0987654321</td>
-                      <td class="app__content-table-table-cell">asdasd</td>
-                      <td class="app__content-table-table-cell">Hà Nội</td>
-                      <td class="app__content-table-table-cell">Đang làm việc</td>
-                      <td class="app__content-table-table-cell">
-                        <div class="app__content-table-table-cell-action">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/delete.png" alt="">
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="app__content-table-table-row">
-                      <td class="app__content-table-table-cell">NV001</td>
-                      <td class="app__content-table-table-cell">Nguyễn Hoàng Việt</td>
-                      <td class="app__content-table-table-cell">20/10/1999</td>
-                      <td class="app__content-table-table-cell">Nam</td>
-                      <td class="app__content-table-table-cell">Nhân viên</td>
-                      <td class="app__content-table-table-cell">0987654321</td>
-                      <td class="app__content-table-table-cell">asdasd</td>
-                      <td class="app__content-table-table-cell">Hà Nội</td>
-                      <td class="app__content-table-table-cell">Đang làm việc</td>
-                      <td class="app__content-table-table-cell">
-                        <div class="app__content-table-table-cell-action">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/delete.png" alt="">
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="app__content-table-table-row">
-                      <td class="app__content-table-table-cell">NV001</td>
-                      <td class="app__content-table-table-cell">Nguyễn Hoàng Việt</td>
-                      <td class="app__content-table-table-cell">20/10/1999</td>
-                      <td class="app__content-table-table-cell">Nam</td>
-                      <td class="app__content-table-table-cell">Nhân viên</td>
-                      <td class="app__content-table-table-cell">0987654321</td>
-                      <td class="app__content-table-table-cell">asdasd</td>
-                      <td class="app__content-table-table-cell">Hà Nội</td>
-                      <td class="app__content-table-table-cell">Đang làm việc</td>
-                      <td class="app__content-table-table-cell">
-                        <div class="app__content-table-table-cell-action">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/delete.png" alt="">
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="app__content-table-table-row">
-                      <td class="app__content-table-table-cell">NV001</td>
-                      <td class="app__content-table-table-cell">Nguyễn Hoàng Việt</td>
-                      <td class="app__content-table-table-cell">20/10/1999</td>
-                      <td class="app__content-table-table-cell">Nam</td>
-                      <td class="app__content-table-table-cell">Nhân viên</td>
-                      <td class="app__content-table-table-cell">0987654321</td>
-                      <td class="app__content-table-table-cell">asdasd</td>
-                      <td class="app__content-table-table-cell">Hà Nội</td>
-                      <td class="app__content-table-table-cell">Đang làm việc</td>
-                      <td class="app__content-table-table-cell">
-                        <div class="app__content-table-table-cell-action">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="">
-                          <img class="app__content-table-table-cell-action-img" src="/resources/assets/icon/delete.png" alt="">
-                        </div>
-                      </td>
-                    </tr>
-
+                      <tr class="app__content-table-row">
+                          <td class="app__content-table-cell">15</td>
+                          <td class="app__content-table-cell">NV-34296</td>
+                          <td class="app__content-table-cell">Hoàng Hưng Chung</td>
+                          <td class="app__content-table-cell">02/08/1954</td>
+                          <td class="app__content-table-cell">Nam</td>
+                          <td class="app__content-table-cell">kthkuizb3830@nowhere.com</td>
+                          <td class="app__content-table-cell">104 nhà K, ngõ 72 Lĩnh Nam</td>
+                          <td class="app__content-table-cell">
+                              <div class="app__content-table-cell-action">
+                                  <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit">
+                                  <img class="app__content-table-cell-action-img" src="/resources/assets/icon/delete.png" alt="Delete">
+                              </div>
+                          </td>
+                      </tr>
+                      <!-- Repeat more rows as needed -->
                   </tbody>
-                </table>
+              </table>
             </div>
           </div>   
         </div>
