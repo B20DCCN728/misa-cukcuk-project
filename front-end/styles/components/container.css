@@ -35,6 +35,12 @@
     margin-left: 2px;
 }
 
+.app__content-table {
+    margin-top: 14px;
+    background-color: var(--white-color);
+    padding: 14px;
+}
+
 .app__content-table-tool {
     display: flex;
     justify-content: space-between;
@@ -122,9 +128,9 @@
     color: var(--text-color);
 }
 
-.header__search-btn-icon--active {
+/* .header__search-btn-icon--active {
     color : var(--white-color);
-}
+} */
 
 .header__search-select:hover .header__search-options {
     display: block;
@@ -278,7 +284,7 @@
     cursor: pointer;
 }
 
-
+/* table of content */
 table {
     width: 100%;
     border-collapse: collapse;
