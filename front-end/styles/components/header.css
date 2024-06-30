@@ -1,6 +1,6 @@
 .header__navbar {
     padding-top: 4px;
-    background-color: #C47DD0;
+    background-color: var(--white-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
