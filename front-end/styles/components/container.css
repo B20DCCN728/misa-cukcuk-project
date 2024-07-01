@@ -244,20 +244,21 @@
 }
 
 .refresh-button {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
     background-image: url(/resources/assets/icon/refresh.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 22px 22px;
+    background-size: 18px 18px;
     background-color: #ffffff;
 }
   
 .refresh-button:hover{
-    background-color: #f9f9f9;
+    background-color: #d1d0d0;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .app__content-table .another {
@@ -266,26 +267,26 @@
 }
 
 .export-excel-btn {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     margin-right: 8px;
     border: 1px solid #bbbbbb;
     border-radius: 4px;
     background-image: url(/resources/assets/icon/export-excel-50.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 22px 22px;
+    background-size: 18px 18px;
     background-color: #ffffff;
 }
   
 .export-excel-btn:hover {
-    background-color: #f9f9f9;
+    background-color: #d1d0d0;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 /* table of content */
 .table-container {
-    
     max-height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -305,6 +306,7 @@ thead {
     position: sticky;
     top: 0;
     color: #ffffff;
+    z-index: 0;
 }
 
 thead th {
@@ -359,6 +361,7 @@ td, th {
 
 /* footer */
 .app__content-footer {
+    margin: 12px 0 8px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -376,22 +379,22 @@ td, th {
 }
 
 .app__content-paging-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 14px;
 }
 
 .app__content-paging-select {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
-    margin-right: 10px;
+    margin-right: 14px;
 }
 
 .app__content-paging-select-icon {
 }
 
 .app__content-paging-control {
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-right: 10px;
 }
