@@ -35,6 +35,7 @@ html, body {
     padding: 0;
     font-family: GoogleSans-Regular;
     font-size: 13px;
+    box-sizing: border-box;
     overflow: hidden;
 }
 
@@ -62,7 +63,7 @@ html, body {
   src: url(/resources/assets/font/GoogleSans-Italic.otf);
 }
 
-.wrap{
+.wrap {
     display: flex;
     width: 100%;
     height: 100%;

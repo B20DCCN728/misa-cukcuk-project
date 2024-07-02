@@ -453,6 +453,9 @@
               <form>
                 <div class="form-header">
                     <h2>Thông tin nhân viên</h2>
+                    <div class="exit">
+                      <i id="exit-modal" class="fas fa-times exit_modal"></i>
+                    </div>
                 </div>
                 <div class="row">
                   <div class="input">
@@ -478,46 +481,32 @@
                 </div>
                 <div class="row">
                   <div class="input">
-                    <label for="employeeId">Mã nhân viên *</label>
-                    <input type="text" id="employeeId" name="employeeId">        
+                    <label for="location">Vị trí</label>
+                    <input type="text" id="location" name="location">
                   </div>
                   <div class="input">
-                    <label for="fullName">Họ và tên *</label>
-                    <input type="text" id="fullName" name="fullName">
+                    <label for="identityCard">CMND</label>
+                    <input type="text" id="identityCard" name="identityCard">
                   </div>
                   <div class="input">
-                    <label for="dob">Ngày sinh</label>
-                    <input type="date" id="dob" name="dob">
-                  </div>
-                  <div class="input">
-                    <label for="gender">Giới tính</label>
-                    <div class="radio-group">
-                      <input type="radio" id="male" name="gender" value="male"> Nam
-                      <input type="radio" id="female" name="gender" value="female"> Nữ
-                      <input type="radio" id="other" name="gender" value="other"> Khác
-                    </div>
+                    <label for="identityCardDate">Ngày cấp</label>
+                    <input type="date" id="identityCardDate" name="identityCardDate">
                   </div>
                 </div>
                 <div class="row">
                   <div class="input">
-                    <label for="employeeId">Mã nhân viên *</label>
-                    <input type="text" id="employeeId" name="employeeId">        
+                    <label for="department">Phòng ban</label>
+                    <input type="text" id="department" name="department">
                   </div>
                   <div class="input">
-                    <label for="fullName">Họ và tên *</label>
-                    <input type="text" id="fullName" name="fullName">
+                    <label for="identityCardPlace">Nơi cấp</label>
+                    <input type="text" id="identityCardPlace" name="identityCardPlace">
                   </div>
+                </div>
+                <div class="row">
                   <div class="input">
-                    <label for="dob">Ngày sinh</label>
-                    <input type="date" id="dob" name="dob">
-                  </div>
-                  <div class="input">
-                    <label for="gender">Giới tính</label>
-                    <div class="radio-group">
-                      <input type="radio" id="male" name="gender" value="male"> Nam
-                      <input type="radio" id="female" name="gender" value="female"> Nữ
-                      <input type="radio" id="other" name="gender" value="other"> Khác
-                    </div>
+                    <label for="address">Địa chỉ</label>
+                    <input type="text" id="address" name="address">
                   </div>
                 </div>
                 <div class="row">
@@ -549,8 +538,8 @@
                   </div>
                 </div>
                 <div class="row button-row">
-                    <button type="submit">Cất</button>
-                    <button type="reset">Hủy</button>
+                    <button type="reset" class="btn">Hủy</button>
+                    <button type="submit" class="btn">Cất</button>
                 </div>
               </form>
             </div>
