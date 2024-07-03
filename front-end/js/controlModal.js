@@ -1,6 +1,17 @@
-const modal = Document.getElementById('modal');
+/// Open modal
+const btnNew = document.querySelector(".app__content-add");
+btnNew.addEventListener(
+    'click',
+    () => {
+        document.querySelector('.modal').style.display = 'flex';
+    }
+);
 
-const addEmployee = Document.getElementByClassName('app__content-add');
-addEmployee.addEventListener('click', () => {
-    modal.style.display = 'block';
-});
+// Close modal
+const btnClose = document.querySelector('.form-header .exit');
+btnClose.addEventListener(
+    'click',
+    () => {
+        document.querySelector('.modal').style.display = 'none';
+    }
+);
