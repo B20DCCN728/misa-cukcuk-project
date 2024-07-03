@@ -148,6 +148,7 @@ html, body {
   cursor: pointer;
   transition: color 0.3s ease;
 }
+
 .close:hover,
 .close:focus {
   color: #000;
@@ -160,15 +161,16 @@ html, body {
 }
 
 .btn-confirm {
-  background-color: #d9534f;
+  background-color: #ed3029;
   color: white;
 }
+
 .btn-confirm:hover {
   background-color: #a61915;
 }
 
 .btn-cancel {
-  background-color: #5bc0de;
+  background-color: #4abbdd;
   color: white;
 }
 
