@@ -4,6 +4,7 @@ btnNew.addEventListener(
     'click',
     () => {
         document.querySelector('.modal').style.display = 'flex';
+        document.getElementById('employeeId').focus();
     }
 );
 

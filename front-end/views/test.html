@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Form Example</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Modal Form</h1>
+
+    <button id="openModalButton">Open Modal</button>
+
+    <div class="modal" id="myModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <form id="modalForm">
+                <div>
+                    <label for="employeeId">Employee ID:</label>
+                    <input type="text" id="employeeId" name="employeeId">
+                </div>
+                <div>
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName">
+                </div>
+                <!-- Other form fields -->
+                <div>
+                    <button type="button" onclick="closeModal()">Close</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+const modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+const openModalButton = document.getElementById('openModalButton');
+
+// Get the first input field in the modal
+const firstInputField = document.getElementById('employeeId');
+
+// When the user clicks the button, open the modal
+openModalButton.addEventListener('click', function() {
+    modal.style.display = 'block';
+    // Set focus to the first input field
+    firstInputField.focus();
+});
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+    </script>
+</body>
+</html>
