@@ -345,6 +345,7 @@ td, th {
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
 }
 
 .app__content-table-cell-action-img {
@@ -352,6 +353,11 @@ td, th {
     height: 20px;
     cursor: pointer;
     transition: transform 0.2s;
+}
+
+.app__content-table-cell-action-img:first-child {
+    width: 16px;
+    height: 16px;
 }
 
 .app__content-table-cell-action-img:hover {
