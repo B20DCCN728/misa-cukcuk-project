@@ -92,3 +92,58 @@ button[type="reset"] {
 button:hover {
     opacity: 0.8;
 }
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-content p {
+    margin: 20px 0;
+    font-size: 1.2em;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    margin-left: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .btn-confirm {
+    background-color: #ed3029;
+    color: white;
+  }
+  
+  .btn-confirm:hover {
+    background-color: #a61915;
+  }
+  
+  .btn-cancel {
+    background-color: #4abbdd;
+    color: white;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #1e6e87;
+  }

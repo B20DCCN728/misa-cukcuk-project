@@ -47,13 +47,13 @@
         </nav>
         <div class="container grid-container">
           <!-- Left side bar -->
-          <nav class="navbar-left">
+          <div class="navbar-left">
             <ul class="menu__left-list">
               <li class="menu-left">
                 <div class="menu-left__icon">
                   <img src="/resources/assets/icon/dashboard.png" alt="">
                 </div>
-                <p class="menu-left__text">Trang chủ</p>
+                <p class="menu-left__text menu-left__text--active">Trang chủ</p>
               </li>
               <li class="menu-left">
                 <div class="menu-left__icon">
@@ -75,10 +75,10 @@
               </li>
             </ul>
             <div class="toogle-disable">
-              <img class="toogle-disable__img" src="/resources/assets/icon/setting.png" alt="">
-              <p class="toogle-disable__text">Cài đặt</p>
+              <img class="toogle-disable__img" src="/resources/assets/icon/btn-prev-page.svg" alt="">
+              <p class="toogle-disable__text">Thu gọn</p>
             </div>
-          </nav>
+          </div>
           <!-- Container components -->
           <div class="body">
             <div class="app__content">
@@ -393,14 +393,14 @@
                   </div>
                 </div>
             </div>
-          </div>   
+          </div>
         </div>
         <div class="footer"></div>
     </div>
     <!-- modal layout -->
     <div class="modal">
         <div class="modal__overlay"></div>
-        <div class="modal__body">
+        <div class="modal__body" id="modal__body">
           <!-- form add new employee -->
           <div class="form__add-employee">
             <div class="form__add-employee-body">

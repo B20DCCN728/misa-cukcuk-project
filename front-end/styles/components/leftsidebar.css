@@ -5,8 +5,10 @@
     padding: 0;
     position: relative;
     background: #041434;
-    height: 100vh; /* Set height to 100% of viewport height */
-    overflow-y: auto; /* Add scroll if content exceeds height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 100vh; Set height to 100% of viewport height */
 }
 
 .title {
@@ -38,6 +40,7 @@
     position: relative;
     list-style-type: none;
     padding: 0;
+    flex-grow: 1;
     margin: 0;
 }
 
@@ -55,7 +58,7 @@
 .menu-left__text {
     font-family: GoogleSanS-Medium;
     font-size: 13px;
-    color: #454545;
+    color: var(--white-color);
 }
 
 .menu-left:focus {
@@ -68,7 +71,11 @@
     cursor: pointer;
     border-radius: 10px;
     margin: 0 8px 0 8px;
-    color: #000000;
+    color: var(--text-color);
+}
+
+.menu-left__text--active {
+    color: var(--white-color);
 }
 
 .menu-left:nth-child(3) {
@@ -103,7 +110,28 @@
     color: var(--active-text-color);
 }
 
-:root {
-    --active-div-color: #019160;
-    --active-text-color: #ffffff;
+.toogle-disable {
+    display: flex;
+    justify-content:last baseline;
+    width: 100%;
+    background-color: #089740;
+    padding: 8px 8px;
 }
+
+.toogle-disable:hover {
+    cursor: pointer;
+    background-color: #0a7d3e;
+}
+
+.toogle-disable__img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px 0 16px;
+}
+
+.toogle-disable__text {
+    font-size: 1.1rem;
+    color: var(--white-color);
+    margin: 0 0 0 10px;
+}
+
