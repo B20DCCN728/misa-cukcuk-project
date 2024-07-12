@@ -2,9 +2,7 @@
 @import url(../styles/components/header.css);
 @import url(../styles/components/container.css);
 @import url(../styles/components/modal.css);
-/* @import url(../css/layout/footer.css);
-@import url(../css/base/dropdown.css);
-@import url(../css/base/combobox.css); */
+
 
 :root {
     --white-color: #fff;
