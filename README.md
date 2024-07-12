@@ -31,9 +31,7 @@ The Employee Management Module provides functionalities to view, search, add, ed
 
 - **Front-End**:
   - Visual Studio/Visual Code 2015 or newer
-  - Vuetify for UI components
+  - Pure HTML, CSS, JavaScript
 
 - **Back-End**:
   - ASP.Net 5/ASP.Net Core for API services
-  - Dapper for database interactions
-  - MariaDB for database
