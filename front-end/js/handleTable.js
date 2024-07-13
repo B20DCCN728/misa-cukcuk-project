@@ -132,4 +132,4 @@ function addEmployee() {
             console.error('Error adding employee:', error);
             alert('Error adding employee. Please try again.');
         });
-}
+};
