@@ -1,21 +1,26 @@
 /* Created by B20DCCN728 */
-const menu = document.querySelector(".select-menu");
+$(() => {
+  // Position dropdown menu
 
-const btn = document.querySelector(".menu-btn");
-
-const options = document.querySelectorAll(".option");
-const btn_txt = document.querySelector(".btn-text");
-
-options.forEach((option) => {
-  option.addEventListener("click", () => {
-    let selectedOption = option.querySelector(".option-text").innerText;
-
-    btn_txt.innerText = selectedOption;
-
-    menu.classList.remove("open");
+  $(".position-option").on("click", function() {
+    let selectedOption = $(this).find(".option-text").text();
+    $(".btn-position-text").text(selectedOption);
+    $(".dropdown-position-menu").removeClass("open");
   });
-});
 
-btn.addEventListener("click", () => {
-  menu.classList.toggle("open");
+  $(".menu-position-btn").on("click", function() {
+    $(".dropdown-position-menu").toggleClass("open");
+  });
+
+  // Department dropdown menu
+
+  $(".department-option").on("click", function() {
+    let selectedOption = $(this).find(".option-text").text();
+    $(".btn-department-text").text(selectedOption);
+    $(".dropdown-department-menu").removeClass("open");
+  });
+
+  $(".menu-department-btn").on("click", function() {
+    $(".dropdown-department-menu").toggleClass("open");
+  });
 });
