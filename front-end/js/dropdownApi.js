@@ -1,5 +1,4 @@
 /* Created by B20DCCN728 */
-
 const menu = document.querySelector(".select-menu");
 
 const btn = document.querySelector(".menu-btn");
