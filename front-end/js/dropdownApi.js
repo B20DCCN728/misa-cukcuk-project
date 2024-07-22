@@ -18,6 +18,7 @@ $(() => {
   //   $(".dropdown-department-menu").removeClass("open");
   // });
 
+  // Fetch department data from https://cukcuk.manhnv.net/api/v1/Departments
   $(".menu-department-btn").on("click", () =>  {
     $(".dropdown-department-menu").toggleClass("open");
     $("#department-options").empty();
@@ -48,43 +49,68 @@ $(() => {
       });
   });
 
-  // -> Post form data to server
+  // Post new employee data to server
   $(".button-row .submit-form").on("click", () => {
+    const generateUUID = () => {
+      // Generate a random UUID v4
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+          const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+      });
+    };
+
     var now = new Date();
+    // Define new data for object
+    var dateOfBirth = new Date($("#date-of-birth").val()).toISOString();
+    var identityDate = new Date($("#identityCardDate").val()).toISOString();
+
+    // New employee object -> POST to server
     let newEmployee = {
         "createdDate": now.toISOString(),
         "createdBy": null,
         "modifiedDate": null,
         "modifiedBy": null,
-        "employeeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "employeeCode": "string",
-        "firstName": "string",
-        "lastName": "string",
-        "fullName": "string",
-        "gender": 0,
-        "dateOfBirth": "2024-07-22T07:04:38.468Z",
-        "phoneNumber": "string",
-        "email": "user@example.com",
-        "address": "string",
-        "identityNumber": "string",
-        "identityDate": "2024-07-22T07:04:38.468Z",
-        "identityPlace": "string",
-        "joinDate": "2024-07-22T07:04:38.468Z",
-        "martialStatus": 0,
-        "educationalBackground": 0,
-        "qualificationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "departmentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "positionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "nationalityId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "workStatus": 0,
-        "personalTaxCode": "string",
-        "salary": 0,
+        "employeeId": generateUUID(),
+        "employeeCode": $("#employeeCode").val(),
+        "firstName": null,
+        "lastName": null,
+        "fullName": $("#fullName").val(),
+        "gender": $('input[name="gender"]:checked').val(),
+        "dateOfBirth": dateOfBirth,
+        "phoneNumber": $("#mobilePhone").val(),
+        "email": $("#email").val(),
+        "address": $("#address").val(),
+        "identityNumber": $("#identityCard").val(),
+        "identityDate": identityDate,
+        "identityPlace": $("#identityCardDate").val(),
+        "joinDate": null,
+        "martialStatus": null,
+        "educationalBackground": null,
+        "qualificationId": null,
+        "departmentId": null,
+        "positionId": null,
+        "nationalityId": null,
+        "workStatus": null,
+        "personalTaxCode": "",
+        "salary": null,
         "positionCode": "string",
         "positionName": "string",
         "departmentCode": "string",
         "departmentName": "string",
-        "qualificationName": "string",
-        "nationalityName": "string"
+        "qualificationName": null,
+        "nationalityName": null
     };
+
+    console.log("New employee: ", newEmployee); // -> Check new employee data
+
+    // POST new employee data to server
+    axios.post('https://cukcuk.manhnv.net/api/v1/employees', newEmployee)
+      .then((response) => {
+        console.log("Data:", response.data);
+        alert("Data has been posted successfully!");
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
   });
 });

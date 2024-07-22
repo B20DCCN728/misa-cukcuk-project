@@ -1,5 +1,5 @@
 /* Style for the form container */
-form {
+.form {
     max-width: 900px;
     margin: auto;
     padding: 20px;
@@ -15,14 +15,14 @@ form {
 
 }
 
-form .form-header .exit {
+.form .form-header .exit {
     font-size: 2rem;
     color: red;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
-form .form-header .exit:hover {
+.form .form-header .exit:hover {
     transform: scale(1.2);
 }
 
