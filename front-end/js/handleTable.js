@@ -74,7 +74,6 @@ const setDataToTable = (data) => {
         }
 
         let dateOfBirth = formatDate(item.DateOfBirth);
-
         var row = `
                     <tr class="app__content-table-row">
                         <td class="app__content-table-cell">${index + 1}</td>

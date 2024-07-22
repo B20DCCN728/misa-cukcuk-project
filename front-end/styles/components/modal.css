@@ -180,6 +180,7 @@ button:hover {
     position: absolute;
     padding: 8px;
     right: 0;
+    z-index: 1;
     width: 100%;
     animation: fadeIn ease-in 0.6s;
     top: calc(100% + 3px);
