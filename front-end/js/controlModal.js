@@ -1,5 +1,5 @@
 $(() => {
-    const firstInputField = $('#employeeId');
+    const firstInputField = $('#employeeCode');
 
     // Open modal
     $(".app__content-add").on('click', function() {

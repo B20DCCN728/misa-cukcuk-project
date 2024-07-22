@@ -18,7 +18,7 @@ $(() => {
   //   $(".dropdown-department-menu").removeClass("open");
   // });
 
-  $(".menu-department-btn").on("click", () => {
+  $(".menu-department-btn").on("click", () =>  {
     $(".dropdown-department-menu").toggleClass("open");
     $("#department-options").empty();
     // Fetch department data from https://cukcuk.manhnv.net/api/v1/Departments
@@ -48,7 +48,43 @@ $(() => {
       });
   });
 
-
   // -> Post form data to server
-  $(".button-row .")
+  $(".button-row .submit-form").on("click", () => {
+    var now = new Date();
+    let newEmployee = {
+        "createdDate": now.toISOString(),
+        "createdBy": null,
+        "modifiedDate": null,
+        "modifiedBy": null,
+        "employeeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "employeeCode": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "fullName": "string",
+        "gender": 0,
+        "dateOfBirth": "2024-07-22T07:04:38.468Z",
+        "phoneNumber": "string",
+        "email": "user@example.com",
+        "address": "string",
+        "identityNumber": "string",
+        "identityDate": "2024-07-22T07:04:38.468Z",
+        "identityPlace": "string",
+        "joinDate": "2024-07-22T07:04:38.468Z",
+        "martialStatus": 0,
+        "educationalBackground": 0,
+        "qualificationId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "departmentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "positionId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "nationalityId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "workStatus": 0,
+        "personalTaxCode": "string",
+        "salary": 0,
+        "positionCode": "string",
+        "positionName": "string",
+        "departmentCode": "string",
+        "departmentName": "string",
+        "qualificationName": "string",
+        "nationalityName": "string"
+    };
+  });
 });
