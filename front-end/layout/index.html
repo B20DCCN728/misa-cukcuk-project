@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/resources/assets/font/fontawesome-free-6.4.0-web/css/all.min.css">
     <link rel="stylesheet" href="/resources/assets/font/">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>CUKCUK MANAGEMENT SYSTEM</title>
@@ -317,66 +318,6 @@
                             </div>
                         </td>
                       </tr>
-                      <tr class="app__content-table-row">
-                        <td class="app__content-table-cell">15</td>
-                        <td class="app__content-table-cell">NV-34296</td>
-                        <td class="app__content-table-cell">Hoàng Hưng Chung</td>
-                        <td class="app__content-table-cell">02/08/1954</td>
-                        <td class="app__content-table-cell">Nam</td>
-                        <td class="app__content-table-cell">kthkuizb3830@nowhere.com</td>
-                        <td class="app__content-table-cell">104 nhà K, ngõ 72 Lĩnh Nam</td>
-                        <td class="app__content-table-cell">
-                            <div class="app__content-table-cell-action">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/delete-48.png" alt="Delete">
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="app__content-table-row">
-                        <td class="app__content-table-cell">15</td>
-                        <td class="app__content-table-cell">NV-34296</td>
-                        <td class="app__content-table-cell">Hoàng Hưng Chung</td>
-                        <td class="app__content-table-cell">02/08/1954</td>
-                        <td class="app__content-table-cell">Nam</td>
-                        <td class="app__content-table-cell">kthkuizb3830@nowhere.com</td>
-                        <td class="app__content-table-cell">104 nhà K, ngõ 72 Lĩnh Nam</td>
-                        <td class="app__content-table-cell">
-                            <div class="app__content-table-cell-action">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/delete-48.png" alt="Delete">
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="app__content-table-row">
-                        <td class="app__content-table-cell">15</td>
-                        <td class="app__content-table-cell">NV-34296</td>
-                        <td class="app__content-table-cell">Hoàng Hưng Chung</td>
-                        <td class="app__content-table-cell">02/08/1954</td>
-                        <td class="app__content-table-cell">Nam</td>
-                        <td class="app__content-table-cell">kthkuizb3830@nowhere.com</td>
-                        <td class="app__content-table-cell">104 nhà K, ngõ 72 Lĩnh Nam</td>
-                        <td class="app__content-table-cell">
-                            <div class="app__content-table-cell-action">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/delete-48.png" alt="Delete">
-                            </div>
-                        </td>
-                      </tr>
-                      <tr class="app__content-table-row">
-                        <td class="app__content-table-cell">15</td>
-                        <td class="app__content-table-cell">NV-34296</td>
-                        <td class="app__content-table-cell">Hoàng Hưng Chung</td>
-                        <td class="app__content-table-cell">02/08/1954</td>
-                        <td class="app__content-table-cell">Nam</td>
-                        <td class="app__content-table-cell">kthkuizb3830@nowhere.com</td>
-                        <td class="app__content-table-cell">104 nhà K, ngõ 72 Lĩnh Nam</td>
-                        <td class="app__content-table-cell">
-                            <div class="app__content-table-cell-action">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/delete-48.png" alt="Delete">
-                            </div>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -429,9 +370,9 @@
                   <div class="input">
                     <label for="gender">Giới tính</label>
                     <div class="radio-group">
-                      <input type="radio" id="male" name="gender" value="male"> Nam
-                      <input type="radio" id="female" name="gender" value="female"> Nữ
-                      <input type="radio" id="other" name="gender" value="other"> Khác
+                      <input type="radio" id="male" name="gender" value="1"> Nam
+                      <input type="radio" id="female" name="gender" value="0"> Nữ
+                      <input type="radio" id="other" name="gender" value="2"> Khác
                     </div>
                   </div>
                 </div>

@@ -191,3 +191,30 @@ function searchEmployees(keyword) {
 //             alert('Error adding employee. Please try again.');
 //         });
 // };
+
+// Export data to Excel
+$('.export-excel-btn').click(function() {
+    exportTableToExcel('tblData', 'exported_data');
+});
+
+function exportTableToExcel(tableID, filename = '') {
+    let tableSelect = $('#' + tableID)[0];
+    let wb = XLSX.utils.table_to_book(tableSelect, { sheet: "Sheet1" });
+    let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+
+    function s2ab(s) {
+        let buf = new ArrayBuffer(s.length);
+        let view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) {
+            view[i] = s.charCodeAt(i) & 0xFF;
+        }
+        return buf;
+    }
+
+    let blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+    let url = URL.createObjectURL(blob);
+    let a = $('<a></a>').attr('href', url).attr('download', filename ? filename + '.xlsx' : 'excel_data.xlsx');
+    $('body').append(a);
+    a[0].click();
+    a.remove();
+}
