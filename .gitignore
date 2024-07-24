@@ -5,3 +5,19 @@
 # Bỏ qua thư mục bin và obj
 bin/
 obj/
+
+# Bỏ qua các file dựng tự động
+*.dll
+*.exe
+*.pdb
+
+# Bỏ qua các file tạm thời
+*.tmp
+*.log
+*.user
+*.suo
+*.bak
+
+# Bỏ qua các thư mục và file hệ thống
+Thumbs.db
+.DS_Store
