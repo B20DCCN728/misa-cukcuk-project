@@ -15,5 +15,8 @@ namespace EmployeeManagement.Model
         public string? CreatedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
         public string? ModifiedBy { get; set; }
+
+        // Navigation property for related Employees
+        public ICollection<Employee>? Employees { get; set; }
     }
 }
