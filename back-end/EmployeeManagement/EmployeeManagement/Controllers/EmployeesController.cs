@@ -15,6 +15,7 @@ namespace EmployeeManagement.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private const int DefaultPageSize = 10;
 
         public EmployeesController(AppDbContext context)
         {
@@ -40,6 +41,21 @@ namespace EmployeeManagement.Controllers
             }
 
             return employee;
+        }
+
+        // GET: api/Departments/paged
+        [HttpGet("paged")]
+        public async Task<ActionResult<IEnumerable<Employee>>> GetPagedDepartments(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = DefaultPageSize
+        )
+        {
+            var employees = await _context.Employee
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return employees;
         }
 
         // PUT: api/Employees/5
