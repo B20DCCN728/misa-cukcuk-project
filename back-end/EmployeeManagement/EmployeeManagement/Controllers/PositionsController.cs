@@ -25,14 +25,14 @@ namespace EmployeeManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Position>>> GetPostition()
         {
-            return await _context.Postition.ToListAsync();
+            return await _context.Position.ToListAsync();
         }
 
         // GET: api/Positions/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Position>> GetPosition(string id)
         {
-            var position = await _context.Postition.FindAsync(id);
+            var position = await _context.Position.FindAsync(id);
 
             if (position == null)
             {
@@ -78,7 +78,7 @@ namespace EmployeeManagement.Controllers
         [HttpPost]
         public async Task<ActionResult<Position>> PostPosition(Position position)
         {
-            _context.Postition.Add(position);
+            _context.Position.Add(position);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPosition", new { id = position.PositionId }, position);
@@ -88,13 +88,13 @@ namespace EmployeeManagement.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePosition(string id)
         {
-            var position = await _context.Postition.FindAsync(id);
+            var position = await _context.Position.FindAsync(id);
             if (position == null)
             {
                 return NotFound();
             }
 
-            _context.Postition.Remove(position);
+            _context.Position.Remove(position);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace EmployeeManagement.Controllers
 
         private bool PositionExists(string id)
         {
-            return _context.Postition.Any(e => e.PositionId == id);
+            return _context.Position.Any(e => e.PositionId == id);
         }
     }
 }
