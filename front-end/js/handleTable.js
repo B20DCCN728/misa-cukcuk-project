@@ -59,7 +59,7 @@ const setDataToTable = (data) => {
     // Loop through the data and add a row for each employee
     data.forEach((item, index) =>  {
         let gender = '';
-        switch(item.Gender) {
+        switch(item.gender) {
             case 0:
                 gender = 'Nữ';
                 break;
@@ -73,31 +73,42 @@ const setDataToTable = (data) => {
                 gender = 'Không xác định';
         }
 
-        let dateOfBirth = formatDate(item.DateOfBirth);
+        let dateOfBirth = formatDate(item.dateOfBirth);
         var row = `
                     <tr class="app__content-table-row">
                         <td class="app__content-table-cell">${index + 1}</td>
-                        <td class="app__content-table-cell">${item.EmployeeCode}</td>
-                        <td class="app__content-table-cell">${item.FullName}</td>
+                        <td class="app__content-table-cell">${item.employeeCode}</td>
+                        <td class="app__content-table-cell">${item.fullName}</td>
                         <td class="app__content-table-cell">${gender}</td>
                         <td class="app__content-table-cell">${dateOfBirth}</td>
-                        <td class="app__content-table-cell">${item.Email}</td>
-                        <td class="app__content-table-cell">${item.Address}</td>
+                        <td class="app__content-table-cell">${item.email}</td>
+                        <td class="app__content-table-cell">${item.address}</td>
                         <td class="app__content-table-cell">
                             <div class="app__content-table-cell-action">
                                 <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit" >
-                                <img class="app__content-table-cell-action-img delete" onclick="modalConfirm('${item.EmployeeId}')" src="/resources/assets/icon/delete-48.png" alt="Delete">
+                                <img class="app__content-table-cell-action-img delete" onclick="modalConfirm('${item.employeeId}')" src="/resources/assets/icon/delete-48.png" alt="Delete">
                             </div>
                         </td>
                     </tr>`;
         container.append(row);
     });
-    $('.app__content-total').text('Tổng: ' + data.length); // Update total number of employees
 };
+
+// 
+$(() => {
+    axios.get('https://localhost:7221/api/Employees/counter')
+    .then((response) => {
+        console.log('Counter:', response.data);
+        $('.app__content-total').text('Tổng: ' + response.data); // Update total number of employees
+    })
+    .catch((error) => {
+        console.error('Error fetching data:', error);
+    });
+});
 
 // Get all data from API and render to table
 $(() => {
-    axios.get('https://cukcuk.manhnv.net/api/v1/Employees')
+    axios.get('https://localhost:7221/api/Employees/filter?pageNumber=1&pageSize=10')
         .then((response) => {
             data = response.data;
             setDataToTable(data);

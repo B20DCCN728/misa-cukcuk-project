@@ -26,7 +26,12 @@ namespace EmployeeManagement.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
         {
-            return await _context.Employee.ToListAsync();
+            var employees = await _context.Employee
+               .Include(e => e.Department)
+               .Include(e => e.Position)
+               .ToListAsync();
+
+            return employees;
         }
 
         // GET: api/Employees/5
@@ -43,20 +48,39 @@ namespace EmployeeManagement.Controllers
             return employee;
         }
 
-        // GET: api/Departments/paged
-        [HttpGet("paged")]
+        // GET: api/Employees/counter
+        [HttpGet("counter")]
+        public async Task<ActionResult<int>> GetEmployeeCount()
+        {
+            return await _context.Employee.CountAsync();
+        }
+
+        // GET: api/Departments/filter
+        [HttpGet("filter")]
         public async Task<ActionResult<IEnumerable<Employee>>> GetPagedDepartments(
             [FromQuery] int pageNumber = 1,
-            [FromQuery] int pageSize = DefaultPageSize
+            [FromQuery] int pageSize = DefaultPageSize,
+            [FromQuery] string searchText = ""
         )
         {
-            var employees = await _context.Employee
+            // Initial query
+            var query = _context.Employee.AsQueryable();
+
+            // Apply search filter if searchText is not empty
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                query = query.Where(e => e.FullName.Contains(searchText));
+            }
+
+            // Apply pagination
+            var employees = await query
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
 
             return employees;
         }
+
 
         // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
