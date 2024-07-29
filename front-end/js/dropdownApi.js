@@ -1,5 +1,14 @@
 /* Created by B20DCCN728 */
 $(() => {
+  // Define data for dropdown menu
+  let employee = {
+    "employeeId": "00000000-0000-0000-0000-000000000000",
+    "employeeCode": "NV0001",
+    "firstName": "Nguyễn",
+    "lastName": "Văn A",
+    "fullName": "Nguyễn Văn A",
+  }
+
   // Position dropdown menu
   $(".position-option").on("click", function() {
     let selectedOption = $(this).find(".option-text").text();

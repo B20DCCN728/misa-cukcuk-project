@@ -52,7 +52,7 @@ namespace EmployeeManagement.Controllers
         [HttpGet("counter")]
         public async Task<ActionResult<int>> GetEmployeeCount()
         {
-            return await _context.Employee.CountAsync();
+            return await _context.Employee.CountAsync(Employee => true);
         }
 
         // GET: api/Departments/filter

@@ -2,6 +2,13 @@
 var data = null;
 // Store the employee ID selected for deletion
 var employeeIdSelected = null;
+let counter = 0;
+// Define filter options
+let filterOptions = {
+    currentPage: 1,
+    itemsPerPage: 10,
+    searchText: ''
+};
 
 // Format date to dd/mm/yyyy
 const formatDate = (dateString) => {
@@ -27,20 +34,11 @@ const modalConfirm = (employeeId) => {
 
 // Delete employee by ID
 $('.btn-confirm').on('click', () => {
-    let url = `https://cukcuk.manhnv.net/api/v1/Employees/${employeeIdSelected}`;
-    console.log('Delete employee:', url);
-    axios.delete(`https://cukcuk.manhnv.net/api/v1/Employees/${employeeIdSelected}`)
+    console.log('Deleting employee with ID:', employeeIdSelected);
+    axios.delete(`https://localhost:7221/api/Employees/${employeeIdSelected}`)
     .then(response => {
         console.log('Response:', response);
-        axios.get('https://cukcuk.manhnv.net/api/v1/Employees') // Fetch data again after deleting
-        .then((response) => {
-            data = response.data;
-            setDataToTable(data);
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-            $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
-        });
+        fetchEmployees(); // Refresh data
         alert('Employee deleted successfully!'); // Show success message
     })
     .catch(error => {
@@ -51,8 +49,46 @@ $('.btn-confirm').on('click', () => {
     });
 });
 
+// Fetch counter of employees
+function fetchCounter() {
+    if(filterOptions.searchText.length > 0) {
+        counter = data.length;
+        $('.app__content-total').text(`Tổng: ${counter}`);
+    } else {
+        axios.get('https://localhost:7221/api/Employees/counter')
+        .then((response) => {
+            counter = response.data;
+            $('.app__content-total').text(`Tổng: ${counter}`);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
+        });
+    }
+};
+
+function fetchEmployees() {
+    params = {};
+    if (filterOptions.searchText.length > 0) {
+        params.searchText = filterOptions.searchText;
+    } 
+    params.pageNumber = filterOptions.currentPage;
+    params.pageSize = filterOptions.itemsPerPage;
+    console.log(params);
+    axios.get('https://localhost:7221/api/Employees/filter', { params })
+        .then((response) => {
+            data = response.data;
+            renderTable();
+            fetchCounter()
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
+        });
+}
+
 // Set data to table from API
-const setDataToTable = (data) => {
+const renderTable = () => {
     var container = $('#data-container');
     container.empty(); // Clear any existing rows
 
@@ -94,55 +130,18 @@ const setDataToTable = (data) => {
     });
 };
 
-// 
+// First loading data
 $(() => {
-    axios.get('https://localhost:7221/api/Employees/counter')
-    .then((response) => {
-        console.log('Counter:', response.data);
-        $('.app__content-total').text('Tổng: ' + response.data); // Update total number of employees
-    })
-    .catch((error) => {
-        console.error('Error fetching data:', error);
-    });
-});
-
-// Get all data from API and render to table
-$(() => {
-    axios.get('https://localhost:7221/api/Employees/filter?pageNumber=1&pageSize=10')
-        .then((response) => {
-            data = response.data;
-            setDataToTable(data);
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-            $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
-        });
+    fetchEmployees();
 });
 
 // Search employee by key
 $(() => {
     $('#search-button').click(() => {
-        var keyword = $('#search-input').val();
-        searchEmployees(keyword);
+        filterOptions.searchText = $('#search-input').val();
+        fetchEmployees();
     });
 });
-
-// Search employee by key
-function searchEmployees(keyword) {
-    axios.get(`https://cukcuk.manhnv.net/api/v1/Employees/filter?employeeFilter=${keyword}`, {
-        params: {
-            search: keyword
-        }
-    })
-    .then((response) => {
-        data = response.data;
-        setDataToTable(data);
-    })
-    .catch((error) => {
-        console.error('Error fetching data:', error);
-        $('#data-container').append('<tr><td colspan="8">Error fetching data. Please try again later.</td></tr>');
-    });
-};
 
 // Export data to Excel
 $('.export-excel-btn').click(function() {
@@ -169,4 +168,13 @@ function exportTableToExcel(tableID, filename = '') {
     $('body').append(a);
     a[0].click();
     a.remove();
-}
+};
+
+// Refresh data
+$('.refresh-button').click(() => {
+    filterOptions.searchText = '';
+    $('#search-input').val('');
+    filterOptions.currentPage = 1;
+    filterOptions.itemsPerPage = 10;
+    fetchEmployees();
+});

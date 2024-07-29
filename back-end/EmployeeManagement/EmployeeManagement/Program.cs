@@ -19,6 +19,17 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(
     )
 );
 
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder
+            .WithOrigins("http://localhost:61124") // Replace with your frontend's URL
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+    );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Use CORS
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 
