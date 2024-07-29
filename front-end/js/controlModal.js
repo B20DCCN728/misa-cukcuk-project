@@ -9,15 +9,6 @@ $(() => {
         firstInputField.focus();
     });
 
-    // Close modal
-    $('.form-header .exit').on('click', function() {
-        $('.modal').css('display', 'none');
-    });
-
-    $('button[type="reset"]').on('click', function() {
-        $('.modal').css('display', 'none');
-    });
-
     // Modal delete product
     $('.app__content-table-cell-action-img').on('click', function() {
         $('.modal').css('display', 'flex');

@@ -3,12 +3,14 @@ var data = null;
 // Store the employee ID selected for deletion
 var employeeIdSelected = null;
 let counter = 0;
+
 // Define filter options
 let filterOptions = {
     currentPage: 1,
     itemsPerPage: 10,
     searchText: ''
 };
+
 
 // Format date to dd/mm/yyyy
 const formatDate = (dateString) => {

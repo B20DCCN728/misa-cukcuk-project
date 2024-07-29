@@ -2,12 +2,30 @@
 $(() => {
   // Define data for dropdown menu
   let employee = {
-    "employeeId": "00000000-0000-0000-0000-000000000000",
-    "employeeCode": "NV0001",
-    "firstName": "Nguyễn",
-    "lastName": "Văn A",
-    "fullName": "Nguyễn Văn A",
-  }
+    "employeeId": "", //
+    "employeeCode": "", //
+    "fullName": "", //
+    "email": "", // 
+    "phoneNumber": "", //
+    "identityNumber": "", //
+    "dateOfBirth": "", //
+    "gender": "", //
+    "address": "", //
+    "departmentId": "", //
+    "positionId": "", // 
+    "department": "", // ->
+    "position": "", // ->
+    "identityDate": "", //
+    "identityPlace": "", //
+    "bankAccount": "", //
+    "bankBrand": "", //
+    "bankName": "", // 
+    "landlineNumber": "", //
+    "createdDate": "", // ->
+    "createdBy": "",
+    "modifiedDate": "",
+    "modifiedBy": ""
+  };
 
   // Position dropdown menu
   $(".position-option").on("click", function() {
@@ -20,19 +38,42 @@ $(() => {
     $(".dropdown-position-menu").toggleClass("open");
   });
 
-  // -> Department dropdown menu
-  // $(".department-option").on("click", function() {
-  //   let selectedOption = $(this).find(".option-text").text();
-  //   $(".btn-department-text").text(selectedOption);
-  //   $(".dropdown-department-menu").removeClass("open");
-  // });
+  // Fetch position data from https://localhost:7221/api/v1/Positions
+  $(".menu-position-btn").on("click", () => {
+    $(".dropdown-position-menu").toggleClass("open");
+    $("#position-options").empty();
+    axios.get('https://localhost:7221/api/v1/Positions')
+      .then((response) => {
+        console.log("Data:", response.data);
+        let positions = response.data;
+        positions.forEach((position) => {
+          let listPosition = `
+            <li class="position-option option">
+              <i class="fab fa-instagram" style="color: #ff0000"></i>
+              <span class="option-text">${position.PositionName}</span>
+            </li>
+          `;
+          $("#position-options").append(listPosition);
+        });
 
-  // Fetch department data from https://cukcuk.manhnv.net/api/v1/Departments
+        // Define click event for each position option
+        $(".position-option").on("click", function() {
+          let selectedOption = $(this).find(".option-text").text();
+          $(".btn-position-text").text(selectedOption);
+          $(".dropdown-position-menu").removeClass("open");
+        });
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  });
+
+  // Fetch department data from https://localhost:7221/api/Departments
   $(".menu-department-btn").on("click", () =>  {
     $(".dropdown-department-menu").toggleClass("open");
     $("#department-options").empty();
-    // Fetch department data from https://cukcuk.manhnv.net/api/v1/Departments
-    axios.get('https://cukcuk.manhnv.net/api/v1/Departments')
+    // Fetch department data from https://localhost:7221/api/Departments
+    axios.get('https://localhost:7221/api/Departments')
       .then((response) => {
         console.log("Data:", response.data);
         let departments = response.data;
@@ -40,7 +81,7 @@ $(() => {
           let listDepartment = `
             <li class="department-option option">
               <i class="fab fa-instagram" style="color: #ff0000"></i>
-              <span class="option-text">${department.DepartmentName}</span>
+              <span class="option-text">${department.departmentName}</span>
             </li>
           `;
           $("#department-options").append(listDepartment);
@@ -122,4 +163,33 @@ $(() => {
         console.error('Error fetching data:', error);
       });
   });
+
+  function refreshForm() {
+    $("#employeeCode").val("");
+    $("#fullName").val("");
+    $("#dateOfBirth").val("");
+    $("#identityNumber").val("");
+    $('input[name="gender"]').prop('checked', false);
+    $("#identityDate").val("");
+    $("#identityPlace").val("");
+    $("#address").val("");
+    $("#landline").val("");
+    $("#mobilePhone").val("");
+    $("#email").val("");
+    $("#bankAccount").val("");
+    $("#bankName").val("");
+    $("#bankBrand").val("");
+  };
+
+  // Close modal
+  $('.form-header .exit').on('click', function() {
+      refreshForm();
+      $('.modal').css('display', 'none');
+  });
+
+  $('button[type="reset"]').on('click', function() {
+      refreshForm();
+      $('.modal').css('display', 'none');
+  });
+
 });
