@@ -1,43 +1,42 @@
 /* Created by B20DCCN728 */
+// Define data for dropdown menu
+let newEmployee = {
+  "employeeId": "", //
+  "employeeCode": "", //
+  "fullName": "", //
+  "email": "", // 
+  "phoneNumber": "", //
+  "identityNumber": "", //
+  "dateOfBirth": "", //
+  "gender": "", //
+  "address": "", //
+  "departmentId": "", //
+  "positionId": "", // 
+  "department": "", // ->
+  "position": "", // ->
+  "identityDate": "", //
+  "identityPlace": "", //
+  "bankAccount": "", //
+  "bankBrand": "", //
+  "bankName": "", // 
+  "landlineNumber": "", //
+  "createdDate": "", // ->
+  "createdBy": "",
+  "modifiedDate": "",
+  "modifiedBy": ""
+};
+
+const selectDepartment = (departmentId) => {
+  console.log("Department ID: ", departmentId);
+  newEmployee.departmentId = departmentId;
+};
+
+const selectPosition = (positionId) => {
+  console.log("Position ID: ", positionId);
+  newEmployee.positionId = positionId;
+};
+
 $(() => {
-  // Define data for dropdown menu
-  let employee = {
-    "employeeId": "", //
-    "employeeCode": "", //
-    "fullName": "", //
-    "email": "", // 
-    "phoneNumber": "", //
-    "identityNumber": "", //
-    "dateOfBirth": "", //
-    "gender": "", //
-    "address": "", //
-    "departmentId": "", //
-    "positionId": "", // 
-    "department": "", // ->
-    "position": "", // ->
-    "identityDate": "", //
-    "identityPlace": "", //
-    "bankAccount": "", //
-    "bankBrand": "", //
-    "bankName": "", // 
-    "landlineNumber": "", //
-    "createdDate": "", // ->
-    "createdBy": "",
-    "modifiedDate": "",
-    "modifiedBy": ""
-  };
-
-  // Position dropdown menu
-  $(".position-option").on("click", function() {
-    let selectedOption = $(this).find(".option-text").text();
-    $(".btn-position-text").text(selectedOption);
-    $(".dropdown-position-menu").removeClass("open");
-  });
-
-  $(".menu-position-btn").on("click", () => {
-    $(".dropdown-position-menu").toggleClass("open");
-  });
-
   // Fetch position data from https://localhost:7221/api/v1/Positions
   $(".menu-position-btn").on("click", () => {
     $(".dropdown-position-menu").toggleClass("open");
@@ -48,9 +47,9 @@ $(() => {
         let positions = response.data;
         positions.forEach((position) => {
           let listPosition = `
-            <li class="position-option option">
+            <li class="position-option option" onclick="selectPosition('${position.positionId}')">
               <i class="fab fa-instagram" style="color: #ff0000"></i>
-              <span class="option-text">${position.PositionName}</span>
+              <span class="option-text">${position.positionName}</span>
             </li>
           `;
           $("#position-options").append(listPosition);
@@ -67,7 +66,6 @@ $(() => {
         console.error('Error fetching data:', error);
       });
   });
-
   // Fetch department data from https://localhost:7221/api/Departments
   $(".menu-department-btn").on("click", () =>  {
     $(".dropdown-department-menu").toggleClass("open");
@@ -79,14 +77,13 @@ $(() => {
         let departments = response.data;
         departments.forEach((department) => {
           let listDepartment = `
-            <li class="department-option option">
+            <li class="department-option option" onclick="selectDepartment('${department.departmentId}')">
               <i class="fab fa-instagram" style="color: #ff0000"></i>
               <span class="option-text">${department.departmentName}</span>
             </li>
           `;
           $("#department-options").append(listDepartment);
         });
-        
         // Define click event for each department option
         $(".department-option").on("click", function() {
           let selectedOption = $(this).find(".option-text").text();
@@ -151,6 +148,34 @@ $(() => {
         "nationalityName": null
     };
 
+    // Define data for dropdown menu
+    // let newEmployee = {
+    //   "employeeId": "", //
+    //   "employeeCode": "", //
+    //   "fullName": "", //
+    //   "email": "", // 
+    //   "phoneNumber": "", //
+    //   "identityNumber": "", //
+    //   "dateOfBirth": "", //
+    //   "gender": "", //
+    //   "address": "", //
+    //   "departmentId": "", //
+    //   "positionId": "", // 
+    //   "department": "", // ->
+    //   "position": "", // ->
+    //   "identityDate": "", //
+    //   "identityPlace": "", //
+    //   "bankAccount": "", //
+    //   "bankBrand": "", //
+    //   "bankName": "", // 
+    //   "landlineNumber": "", //
+    //   "createdDate": "", // ->
+    //   "createdBy": "",
+    //   "modifiedDate": "",
+    //   "modifiedBy": ""
+    // };
+
+
     console.log("New employee: ", newEmployee); // -> Check new employee data
 
     // POST new employee data to server
@@ -179,6 +204,8 @@ $(() => {
     $("#bankAccount").val("");
     $("#bankName").val("");
     $("#bankBrand").val("");
+    $(".btn-position-text").text("Chọn vị trí");
+    $(".btn-department-text").text("Chọn phòng ban");
   };
 
   // Close modal
@@ -191,5 +218,4 @@ $(() => {
       refreshForm();
       $('.modal').css('display', 'none');
   });
-
 });

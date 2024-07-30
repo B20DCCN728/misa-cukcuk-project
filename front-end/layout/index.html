@@ -365,7 +365,7 @@
                   </div>
                   <div class="input">
                     <label for="dateOfBirth">Ngày sinh</label>
-                    <input type="dateOfBirth" id="dateOfBirth" name="dateOfBirth">
+                    <input type="date" id="dateOfBirth" name="dateOfBirth">
                   </div>
                   <div class="input">
                     <label for="gender">Giới tính</label>
@@ -378,7 +378,7 @@
                 </div>
                 <div class="row">
                   <div class="input">
-                    <label for="location">Vị trí</label>
+                    <label for="position">Vị trí</label>
                     <!-- <input type="text" id="location" name="location"> -->
                     <div class="dropdown-position-menu select-menu input">
                       <div class="menu-position-btn menu-btn">
@@ -386,8 +386,8 @@
                         <i class="fas fa-caret-down"></i>
                       </div>
                       <div class="dropdown-options">
-                        <ul class="options">
-                          <li class="position-option option">
+                        <ul id="position-options" class="options position-options">
+                          <!-- <li class="position-option option">
                             <i class="fab fa-youtube" style="color: #ff0000"></i>
                             <span class="option-text">Youtube</span>
                           </li>
@@ -406,7 +406,7 @@
                           <li class="position-option option">
                             <i class="fab fa-instagram" style="color: #e1306c"></i>
                             <span class="option-text">Instagram</span>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                     </div>
