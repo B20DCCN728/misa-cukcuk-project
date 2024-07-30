@@ -99,14 +99,41 @@ function fetchEmployees() {
         .then((response) => {
             data = response.data;
             renderTable();
-            alert('Data has been fetched successfully!');
-            fetchCounter()
+            fetchCounter();
         })
         .catch((error) => {
             console.error('Error fetching data:', error);
             $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
         });
 }
+
+function editEmployee(employeeId) {
+    console.log('Editing employee with ID:', employeeId);
+    data.forEach((item) => {
+        if (item.employeeId === employeeId) {
+            $("#employeeId").val(item.employeeId);
+            $("#employeeCode").val(item.employeeCode);
+            $("#fullName").val(item.fullName);
+            $("#dateOfBirth").val(formatDate(item.dateOfBirth));
+            $("#identityNumber").val(item.identityNumber);
+            $("#identityDate").val(formatDate(item.identityDate));
+            $("#identityPlace").val(item.identityPlace);
+            $("#address").val(item.address);
+            $("#landline").val(item.landlineNumber);
+            $("#mobilePhone").val(item.phoneNumber);
+            $("#email").val(item.email);
+            $("#bankAccount").val(item.bankAccount);
+            $("#bankName").val(item.bankName);
+            $("#bankBrand").val(item.bankBrand);
+        }
+    });
+
+    // Open modal
+    $('.modal').css('display', 'flex');
+    $('#modal__body').css('display', '');
+    $('.modal__body:last-child').css('display', 'none');
+    firstInputField.focus();
+};
 
 // Set data to table from API
 const renderTable = () => {
@@ -142,7 +169,7 @@ const renderTable = () => {
                         <td class="app__content-table-cell">${item.address}</td>
                         <td class="app__content-table-cell">
                             <div class="app__content-table-cell-action">
-                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit" >
+                                <img class="app__content-table-cell-action-img" src="/resources/assets/icon/edit.png" alt="Edit" onclick="editEmployee('${item.employeeId}')">
                                 <img class="app__content-table-cell-action-img delete" onclick="modalConfirm('${item.employeeId}')" src="/resources/assets/icon/delete-48.png" alt="Delete">
                             </div>
                         </td>

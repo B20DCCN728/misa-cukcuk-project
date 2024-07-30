@@ -439,3 +439,11 @@ td, th {
     font-weight: 600;
     margin-right: 10px;
 }
+
+.app__content-paging-control-icon:first-child:hover {
+    cursor: pointer;
+}
+
+.app__content-paging-control-icon:last-child:hover {
+    cursor: pointer;
+}
