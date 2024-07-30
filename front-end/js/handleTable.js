@@ -11,7 +11,6 @@ let filterOptions = {
     searchText: ''
 };
 
-
 // Format date to dd/mm/yyyy
 const formatDate = (dateString) => {
     let date = new Date(dateString);
@@ -52,20 +51,39 @@ $('.btn-confirm').on('click', () => {
 });
 
 // Fetch counter of employees
-function fetchCounter() {
-    if(filterOptions.searchText.length > 0) {
-        counter = data.length;
-        $('.app__content-total').text(`Tổng: ${counter}`);
-    } else {
-        axios.get('https://localhost:7221/api/Employees/counter')
-        .then((response) => {
+async function fetchCounter() {
+    try {
+        if (filterOptions.searchText.length > 0) {
+            counter = data.length;
+        } else {
+            // Await the API response to ensure synchronous-like behavior
+            const response = await axios.get('https://localhost:7221/api/Employees/counter');
             counter = response.data;
-            $('.app__content-total').text(`Tổng: ${counter}`);
-        })
-        .catch((error) => {
-            console.error('Error fetching data:', error);
-            $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
-        });
+        }
+
+        // Update the total counter in the UI
+        $('.app__content-total').text(`Tổng: ${counter}`);
+
+        // Calculate total pages and handle UI changes
+        let totalPages = Math.ceil(counter / filterOptions.itemsPerPage);
+        console.log('Total pages:', totalPages);
+        
+        // Example UI update based on current page
+        if (filterOptions.currentPage === 1) {
+            $('.app__content-paging-control-icon:first-child').css('color', '#d1d1d1');
+        } else {
+            $('.app__content-paging-control-icon:first-child').css('color', '#000');
+        }
+
+        if (filterOptions.currentPage === totalPages) {
+            $('.app__content-paging-control-icon:last-child').css('color', '#d1d1d1');
+        } else {
+            $('.app__content-paging-control-icon:last-child').css('color', '#000');
+        }
+
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        $('#data-container').append('<tr><td colspan="9">Error fetching data. Please try again later.</td></tr>');
     }
 };
 
@@ -201,5 +219,21 @@ $('.app__content-paging-dropdown').on('click', 'div', function() {
 $(document).on('click', (e) => {
     if (!$select.is(e.target) && $select.has(e.target).length === 0) {
         $dropdown.removeClass('open');
+    }
+});
+
+// Handle paging control
+$('.app__content-paging-control-icon:first-child').click(() => {
+    if (filterOptions.currentPage > 1) {
+        filterOptions.currentPage--;
+        fetchEmployees();
+    }
+});
+
+$('.app__content-paging-control-icon:last-child').click(() => {
+    let totalPages = Math.ceil(counter / filterOptions.itemsPerPage);
+    if (filterOptions.currentPage < totalPages) {
+        filterOptions.currentPage++;
+        fetchEmployees();
     }
 });
