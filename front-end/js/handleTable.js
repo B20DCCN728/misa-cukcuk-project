@@ -81,6 +81,7 @@ function fetchEmployees() {
         .then((response) => {
             data = response.data;
             renderTable();
+            alert('Data has been fetched successfully!');
             fetchCounter()
         })
         .catch((error) => {
@@ -179,4 +180,26 @@ $('.refresh-button').click(() => {
     filterOptions.currentPage = 1;
     filterOptions.itemsPerPage = 10;
     fetchEmployees();
+});
+
+const $select = $('.app__content-paging-select');
+const $selectText = $('.app__content-paging-select-text');
+const $dropdown = $('.app__content-paging-select');
+
+$select.on('click', () => {
+    $dropdown.toggleClass("open");
+});
+
+$('.app__content-paging-dropdown').on('click', 'div', function() {
+    const value = $(this).data('value');
+    $selectText.text(value);
+    filterOptions.itemsPerPage = value;
+    fetchEmployees();
+    $('.app__content-paging-select').removeClass('open');
+}); 
+
+$(document).on('click', (e) => {
+    if (!$select.is(e.target) && $select.has(e.target).length === 0) {
+        $dropdown.removeClass('open');
+    }
 });

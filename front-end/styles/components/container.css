@@ -394,6 +394,41 @@ td, th {
     font-size: 1.1rem;
     font-weight: 600;
     margin-right: 14px;
+    position: relative;
+}
+
+.app__content-paging-select i {
+    cursor: pointer;
+}
+
+.app__content-paging-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    bottom: calc(100% + 3px);
+    right: calc(100% - 20px);
+    z-index: 1000;
+}
+
+.app__content-paging-select.open i {
+    transform: rotate(180deg);
+}
+
+.app__content-paging-select.open .app__content-paging-dropdown {
+    display: block;
+}
+
+.app__content-paging-select.open .app__content-paging-dropdown div {
+    font-size: 1.1rem;
+    padding: 4px 20px;
+    cursor: pointer;
+}
+
+.app__content-paging-dropdown div:hover {
+    background-color: #f0f0f0;
 }
 
 .app__content-paging-select-icon {
