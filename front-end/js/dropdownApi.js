@@ -12,8 +12,12 @@ let newEmployee = {
   "address": "", //
   "departmentId": "", //
   "positionId": "", // 
-  "department": "", // ->
-  "position": "", // ->
+  "department": {
+    "departmentId": "",
+  }, // ->
+  "position": {
+    "positionId": "",
+  }, // ->
   "identityDate": "", //
   "identityPlace": "", //
   "bankAccount": "", //
@@ -26,14 +30,17 @@ let newEmployee = {
   "modifiedBy": ""
 };
 
+
 const selectDepartment = (departmentId) => {
   console.log("Department ID: ", departmentId);
   newEmployee.departmentId = departmentId;
+  newEmployee.department.departmentId = departmentId;
 };
 
 const selectPosition = (positionId) => {
   console.log("Position ID: ", positionId);
   newEmployee.positionId = positionId;
+  newEmployee.position.positionId = positionId;
 };
 
 $(() => {
@@ -84,6 +91,7 @@ $(() => {
           `;
           $("#department-options").append(listDepartment);
         });
+
         // Define click event for each department option
         $(".department-option").on("click", function() {
           let selectedOption = $(this).find(".option-text").text();
@@ -98,6 +106,8 @@ $(() => {
 
   // Post new employee data to server
   $(".button-row .submit-form").on("click", () => {
+
+    // Generate UUID v4
     const generateUUID = () => {
       // Generate a random UUID v4
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
@@ -108,78 +118,34 @@ $(() => {
 
     var now = new Date();
     // Define new data for object
-    var dateOfBirth = new Date($("#date-of-birth").val()).toISOString();
-    var identityDate = new Date($("#identityCardDate").val()).toISOString();
-
-    // New employee object -> POST to server
-    let newEmployee = {
-        "createdDate": now.toISOString(),
-        "createdBy": null,
-        "modifiedDate": null,
-        "modifiedBy": null,
-        "employeeId": generateUUID(),
-        "employeeCode": $("#employeeCode").val(),
-        "firstName": null,
-        "lastName": null,
-        "fullName": $("#fullName").val(),
-        "gender": $('input[name="gender"]:checked').val(),
-        "dateOfBirth": dateOfBirth,
-        "phoneNumber": $("#mobilePhone").val(),
-        "email": $("#email").val(),
-        "address": $("#address").val(),
-        "identityNumber": $("#identityCard").val(),
-        "identityDate": identityDate,
-        "identityPlace": $("#identityCardDate").val(),
-        "joinDate": null,
-        "martialStatus": null,
-        "educationalBackground": null,
-        "qualificationId": null,
-        "departmentId": null,
-        "positionId": null,
-        "nationalityId": null,
-        "workStatus": null,
-        "personalTaxCode": "",
-        "salary": null,
-        "positionCode": "string",
-        "positionName": "string",
-        "departmentCode": "string",
-        "departmentName": "string",
-        "qualificationName": null,
-        "nationalityName": null
-    };
-
-    // Define data for dropdown menu
-    // let newEmployee = {
-    //   "employeeId": "", //
-    //   "employeeCode": "", //
-    //   "fullName": "", //
-    //   "email": "", // 
-    //   "phoneNumber": "", //
-    //   "identityNumber": "", //
-    //   "dateOfBirth": "", //
-    //   "gender": "", //
-    //   "address": "", //
-    //   "departmentId": "", //
-    //   "positionId": "", // 
-    //   "department": "", // ->
-    //   "position": "", // ->
-    //   "identityDate": "", //
-    //   "identityPlace": "", //
-    //   "bankAccount": "", //
-    //   "bankBrand": "", //
-    //   "bankName": "", // 
-    //   "landlineNumber": "", //
-    //   "createdDate": "", // ->
-    //   "createdBy": "",
-    //   "modifiedDate": "",
-    //   "modifiedBy": ""
-    // };
+    var dateOfBirth = new Date($("#dateOfBirth").val()).toISOString();
+    var identityDate = new Date($("#identityDate").val()).toISOString();
+    // Get data from form input
+    newEmployee.employeeId = generateUUID();
+    newEmployee.employeeCode = $("#employeeCode").val();
+    newEmployee.fullName = $("#fullName").val();
+    newEmployee.dateOfBirth = dateOfBirth;
+    newEmployee.gender = $('input[name="gender"]:checked').val();
+    newEmployee.identityNumber = $("#identityNumber").val();
+    newEmployee.identityDate = identityDate;
+    newEmployee.identityPlace = $("#identityPlace").val();
+    newEmployee.address = $("#address").val();
+    newEmployee.landlineNumber = $("#landline").val();
+    newEmployee.phoneNumber = $("#mobilePhone").val();
+    newEmployee.email = $("#email").val();
+    newEmployee.bankAccount = $("#bankAccount").val();
+    newEmployee.bankName = $("#bankName").val();
+    newEmployee.bankBrand = $("#bankBrand").val();
+    newEmployee.createdDate = now.toISOString();
+    newEmployee.createdBy = "B20DCCN728 - PTIT";
+    newEmployee.modifiedDate = null;
+    newEmployee.modifiedBy = null;
 
 
     console.log("New employee: ", newEmployee); // -> Check new employee data
 
     // POST new employee data to server
-    axios.post('https://cukcuk.manhnv.net/api/v1/employees', newEmployee)
+    axios.post('https://localhost:7221/api/Employees', newEmployee)
       .then((response) => {
         console.log("Data:", response.data);
         alert("Data has been posted successfully!");

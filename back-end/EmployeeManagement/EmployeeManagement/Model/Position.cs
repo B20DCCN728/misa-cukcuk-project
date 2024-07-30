@@ -17,6 +17,6 @@ namespace EmployeeManagement.Model
         public string? ModifiedBy { get; set; }
 
         // Navigation property for related Employees
-        public ICollection<Employee>? Employees { get; set; }
-    }
+/*        public ICollection<Employee>? Employees { get; set; }
+*/    }
 }

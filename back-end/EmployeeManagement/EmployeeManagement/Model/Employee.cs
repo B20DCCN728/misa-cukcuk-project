@@ -37,11 +37,11 @@ namespace EmployeeManagement.Model
         public string? PositionId { get; set; }
 
         // Navigation properties
-        [ForeignKey("DepartmentId")]
+/*        [ForeignKey("DepartmentId")]
         public Department? Department { get; set; }
 
         [ForeignKey("PositionId")]
-        public Position? Position { get; set; }
+        public Position? Position { get; set; }*/
 
         public DateTime? IdentityDate { get; set; }
         public string? IdentityPlace { get; set; }

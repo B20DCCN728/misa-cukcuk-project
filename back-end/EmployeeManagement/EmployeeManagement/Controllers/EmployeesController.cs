@@ -27,8 +27,8 @@ namespace EmployeeManagement.Controllers
         public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
         {
             var employees = await _context.Employee
-               .Include(e => e.Department)
-               .Include(e => e.Position)
+/*               .Include(e => e.Department)
+               .Include(e => e.Position)*/
                .ToListAsync();
 
             return employees;
